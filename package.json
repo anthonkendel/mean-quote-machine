@@ -11,7 +11,11 @@
   "license": "Beerware",
   "dependencies": {
     "express": "^4.15.2",
+    "faker": "^4.1.0",
     "mongodb": "^2.2.25",
     "vue": "^2.2.5"
+  },
+  "devDependencies": {
+    "jslint": "^0.10.3"
   }
 }
