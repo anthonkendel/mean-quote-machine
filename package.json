@@ -5,15 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
   "author": "Erik Lilja, Anthon Holmqvist, Max Meldrum",
   "license": "Beerware",
   "dependencies": {
+    "bson": "^1.0.4",
     "express": "^4.15.2",
-    "faker": "^4.1.0",
+    "kerberos": "0.0.23",
     "mongodb": "^2.2.25",
-    "vue": "^2.2.5"
+    "mongodb-core": "^2.1.9",
+    "node-gyp": "^3.6.0",
+    "vue": "^2.2.5",
+    "wikiquotesjs": "^0.6.6"
   },
   "devDependencies": {
     "jslint": "^0.10.3"
