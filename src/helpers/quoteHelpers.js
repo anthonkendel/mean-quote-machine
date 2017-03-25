@@ -1,9 +1,9 @@
-var faker = require("express");
+module.exports = {
+    createQuote: function (string) {
+        return ({
+            quote: string
+        });
+    }
+};
 
-function createQuote(string) {
-    return ({
-        quote: string
-    });
-}
 
-export {createQuote};

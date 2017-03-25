@@ -1,7 +1,7 @@
-var express = require("express");
-var app = express();
+let express = require("express");
+let app = express();
 
-var quoteRouter = require("./routes/quote");
+let quoteRouter = require("./routes/quote");
 
 app.use(quoteRouter);
 
