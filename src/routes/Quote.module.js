@@ -7,11 +7,12 @@ let mongoDB = require("../MongoDB.module");
 
 
 router.get("/get_random_quote/", function (req, res, next) {
-    wiki.getRandomQuote().then(result => {
-        mongoDB.insertQuote(result);
-
-        res.send(quoteHelpers.formatQuote(result));
+    wiki.getRandomQuote().then(quote => {
+        mongoDB.insertQuote(quote);
+        res.status(200);
+        res.send(quoteHelpers.formatQuote(quote));
     }).catch(err => {
+        res.status(400);
         res.send(quoteHelpers.formatQuote(err));
     });
 });
