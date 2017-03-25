@@ -1,1 +1,8 @@
+# Js specific
 node_modules/
+dist/
+
+# Editor specifics
+# Vim swapfile(s)
+*.sw*
+
