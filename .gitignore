@@ -3,6 +3,13 @@ node_modules/
 dist/
 .idea/
 
+# Public specifc
+public/js/vue.js
+public/js/vue.min.js
+public/css/milligram.min.css
+public/css/milligram.min.css.map
+public/css/normalize.css
+
 # Editor specifics
 # Vim swapfile(s)
 *.sw*
