@@ -5,7 +5,7 @@ var quoteRouter = require("./routes/quote");
 
 app.use(quoteRouter);
 
-app.listen(3000, "localhost", function () {
+app.listen(3000, "0.0.0.0", function () {
     console.log("API up and running.");
 });
 
