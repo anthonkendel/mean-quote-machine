@@ -1,7 +1,7 @@
 let express = require("express");
 let app = express();
 
-let quoteRouter = require("./routes/quote");
+let quoteRouter = require("./routes/Quote.module");
 
 app.use(function (req, res, next) {
     res.charset = "utf-8";

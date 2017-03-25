@@ -1,7 +1,7 @@
 let wiki = require('wikiquotesjs')
 let express = require("express");
 let router = express.Router();
-let quoteHelpers = require("../helpers/quoteHelpers");
+let quoteHelpers = require("../helpers/QuoteHelpers.module");
 
 
 router.get("/get_random_quote/", function (req, res, next) {
