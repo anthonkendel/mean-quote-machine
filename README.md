@@ -1,15 +1,40 @@
-# Mean Quote Machine
+# Mean Quote Machine!
 
-A sample application using the technologies in the MEAN stack, except instead of Angular.js, we are using Vue.js.
+A simple application that generates random quotes from [Wikipedia](https://www.wikipedia.org/) with the help of [wikiquotejs](https://www.npmjs.com/package/wikiquotesjs). The application is built upon the MEAN stack with the exception that Angular.js has been switched out with Vue.js.
 
-To get everything up and running, execute the command down below:
+**Dependencies**
 
-```bash
-./install_containers.sh
+```
+Node => 6.9.5
+Docker
 ```
 
-To test the rest interface, execute the command down below:
+**Installation**
+
+```bash
+npm install
+```
+
+**Running Application**
+
+```bash
+./install_containers.sh start all
+```
+
+**Example call**
 
 ```bash
 curl localhost:3000/get_random_quote
+```
+
+**Example respons**
+
+```json
+{
+  "quote": {
+    "text": "I have never seen the slightest scientific proof of the religious ideas of heaven and hell, of future life for individuals, or of a personal God.  As quoted in Jesus : Myth Or Reality?",
+    "from": "Jesus : Myth Or Reality?",
+    "author": "Thomas Edison"
+  }
+}
 ```
