@@ -1,4 +1,4 @@
-FROM debian
+FROM node:7.7
 
 RUN apt-get update
 
@@ -8,7 +8,7 @@ WORKDIR /home/
 
 COPY . /home/
 
-RUN ./scripts/install_node.sh
+#RUN ./scripts/install_node.sh
 
 EXPOSE 3000
 
