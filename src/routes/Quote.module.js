@@ -9,6 +9,7 @@ let mongoDB = require("../MongoDB.module");
 router.get("/get_random_quote/", function (req, res, next) {
     wiki.getRandomQuote().then(quote => {
         mongoDB.insertQuote(quote);
+        quote.text = quote.text + " " + quote.from;
         res.status(200);
         res.send(quoteHelpers.formatQuote(quote));
     }).catch(err => {
