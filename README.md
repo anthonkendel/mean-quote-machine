@@ -27,7 +27,7 @@ npm install
 curl localhost:3000/get_random_quote
 ```
 
-**Example respons**
+**Example response**
 
 ```json
 {
