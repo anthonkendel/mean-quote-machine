@@ -10,7 +10,7 @@ header[role=header] h1 {
 
 /* Main */
 main[role=main] {
-	margin-top: 10%;
+	margin-top: 5%;
 }
 
 main[role=main] > div.row > div.column > button {
