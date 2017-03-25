@@ -6,9 +6,9 @@ let quoteHelpers = require("../helpers/quoteHelpers");
 
 router.get("/get_random_quote/", function (req, res, next) {
     wiki.getRandomQuote().then(result => {
-        res.send(quoteHelpers.createQuote(result));
+        res.send(quoteHelpers.formatQuote(result));
     }).catch(err => {
-        res.send(quoteHelpers.createQuote(err));
+        res.send(quoteHelpers.formatQuote(err));
     });
 });
 
