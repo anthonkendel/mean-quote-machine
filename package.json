@@ -10,8 +10,12 @@
   "author": "Erik Lilja, Anthon Holmqvist, Max Meldrum",
   "license": "Beerware",
   "dependencies": {
+    "bson": "^1.0.4",
     "express": "^4.15.2",
+    "kerberos": "0.0.23",
     "mongodb": "^2.2.25",
+    "mongodb-core": "^2.1.9",
+    "node-gyp": "^3.6.0",
     "vue": "^2.2.5",
     "wikiquotesjs": "^0.6.6"
   },
