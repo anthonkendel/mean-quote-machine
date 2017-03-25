@@ -1,5 +1,5 @@
 (function(){
-	let project = "Mean quote machine"
+	let project = "Mean quote machine!"
 
 	var app = new Vue({
 		el: '#app',

@@ -1,6 +1,10 @@
 /* Header */
 header[role=header] h1 {
 	text-align: center;
+	margin: 2em 0em 1em 0em;
+	font-family: "Indie Flower", cursive;
+	font-size: 5.5em;
+	color: #1a1a1a;
 }
 /* Navigation */
 
