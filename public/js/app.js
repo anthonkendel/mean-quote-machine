@@ -4,7 +4,7 @@
 	var app = new Vue({
 		el: '#app',
 		data: {
-			msg: project
+			projectTitle: project
 		}
 	});
 
@@ -12,34 +12,31 @@
 		el: '#request',
 		data: function() {
 			return {
-				quote: "",
-				author: ""
+				quote: "Placeholder quote",
+				author: "Placeholder author"
 			}
 		},
 		methods: {
-			changeQuote: function (){
-				httpGetAsync(this.callback)
-			},
-			callback: function (newquote){
-				this.quote = (newquote)
+			callback: function(data, context) {
+				context.quote = data.text
+				context.author = data.author
 			},
 			getQuote: function() {
-				var self = this;
-				let url='http://localhost:3000/get_random_quote'
+				this.retrieveQuote(this.callback)
+			},
+			retrieveQuote: function(cb) {
+				const context = this
+				let url='http://0.0.0.0:3000/get_random_quote'
+
 				// GET request
 				this.$http.get(url, function (data) {
-					// set data on vm
-					console.log(data.quote.text)
-					console.log(data.quote.author)
-					self.quote = data.text
-					self.author = data.author
+					cb(data.quote, context)
 				}).error(function (data, status, request) {
-					console.log("error")
+					console.log("Error fetching quote")
 				})
 
 			}
 		}
 	});
-
 
  })()

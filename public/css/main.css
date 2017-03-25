@@ -9,10 +9,28 @@ header[role=header] h1 {
 /* Navigation */
 
 /* Main */
+main[role=main] {
+	margin-top: 10%;
+}
+
 main[role=main] > div.row > div.column > button {
 	text-align: center;
 	margin: 0 auto;
+	text-transform: capitalize;
+	font-weight: normal;
+	font-size: 150%;
 	display: block;
+}
+
+main[role=main] > div.row > div.column {
+	text-align: left;
+}
+
+main[role=main] > div.row > div.column.quote {
+	font-size: 160%;
+}
+
+main[role=main] > div.row > div.column.author {
 }
 
 
