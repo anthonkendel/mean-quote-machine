@@ -17,11 +17,26 @@ router.get("/get_random_quote/", function (req, res, next) {
     });
 });
 
+router.get("/get_quote_of_the_day/", function (req, res, next) {
+    wiki.getQOTD().then(quote => {
+        quote.text = quote.text.text;
+        quote["from"] = "";
+        mongoDB.insertQuote(quote);
+        res.status(200);
+        res.send(quoteHelpers.formatQuote(quote));
+    }).catch(err => {
+        res.status(400);
+        res.send(quoteHelpers.formatQuote(err));
+    });
+});
+
 router.get("/get_existing_quote/", function (req, res, next) {
     let quote = mongoDB.findRandomQuote();
     console.log(quote);
     res.send(quote);
 });
+
+
 
 module.exports = router;
 
