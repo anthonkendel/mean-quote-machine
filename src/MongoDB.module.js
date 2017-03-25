@@ -58,16 +58,26 @@ module.exports = {
     },
 
     findRandomQuote: function () {
-        mongo.connect(mongoUrl, function (err, db) {
+        return new Promise(function (resolve, reject) {
+            mongo.connect(mongoUrl, function (err, db) {
             if (!assert.equal(null, err)) {
                 console.log("Connected to mongodb");
                 let quoteCollection = db.collection("quotes");
 
-                return quote;
+                quoteCollection.find({}).toArray(function (err, quotes) {
+                    if (!assert.equal(null, err)) {
+                        let index = Math.floor(quotes.length * Math.random());
+                        resolve(quotes[index]);
+                    } else {
+                        reject("No quotes available");
+                    }
+                });
             } else {
-                console.error("Error: " + err);
+                console.error("Error: " + err); // Log for server use
+                reject("Could not connect to the database"); // Reply for client
             }
             db.close();
+            });
         });
     }
 };

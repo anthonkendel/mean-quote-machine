@@ -18,9 +18,14 @@ router.get("/get_random_quote/", function (req, res, next) {
 });
 
 router.get("/get_existing_quote/", function (req, res, next) {
-    let quote = mongoDB.findRandomQuote();
-    console.log(quote);
-    res.send(quote);
+    mongoDB.findRandomQuote().then(function(value) {
+        res.status(200);
+        res.send(value);
+    }, function(reason) {
+        res.status(200);
+        res.send(reason);
+    });
+
 });
 
 module.exports = router;
