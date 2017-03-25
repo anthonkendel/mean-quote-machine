@@ -4,7 +4,8 @@
   "description": "Project for learning more about MEAN stack.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Erik Lilja, Anthon Holmqvist, Max Meldrum",
   "license": "Beerware",
