@@ -13,7 +13,7 @@ router.get("/get_random_quote/", function (req, res, next) {
 });
 
 router.get("/get_existing_quote/", function (req, res, next) {
-    res.send("existing quote");
+    res.send(quoteHelpers.formatQuote("The world is f***** up."));
 });
 
 module.exports = router;
