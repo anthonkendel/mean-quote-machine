@@ -1,0 +1,18 @@
+/* Header */
+header[role=header] h1 {
+	text-align: center;
+}
+/* Navigation */
+
+/* Main */
+main[role=main] > div.row > div.column > button {
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+
+/* Footer */
+footer[role=footer] > div.row > div.column {
+	text-align: center;
+}
