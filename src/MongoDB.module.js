@@ -1,6 +1,15 @@
 let mongo = require("mongodb").MongoClient;
 let assert = require("assert");
 
+
+let errorQuote = {
+    quote: {
+        text: "Not found.",
+        from: "Not found.",
+        author: "Not found."
+    }
+};
+
 /*
  * Connection URL
  */
@@ -41,6 +50,20 @@ module.exports = {
                         }
                     });
                 }
+            } else {
+                console.error("Error: " + err);
+            }
+            db.close();
+        });
+    },
+
+    findRandomQuote: function () {
+        mongo.connect(mongoUrl, function (err, db) {
+            if (!assert.equal(null, err)) {
+                console.log("Connected to mongodb");
+                let quoteCollection = db.collection("quotes");
+
+                return quote;
             } else {
                 console.error("Error: " + err);
             }

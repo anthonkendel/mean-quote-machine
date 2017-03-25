@@ -18,7 +18,9 @@ router.get("/get_random_quote/", function (req, res, next) {
 });
 
 router.get("/get_existing_quote/", function (req, res, next) {
-    res.send(quoteHelpers.formatQuote("The world is f***** up."));
+    let quote = mongoDB.findRandomQuote();
+    console.log(quote);
+    res.send(quote);
 });
 
 module.exports = router;

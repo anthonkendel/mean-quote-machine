@@ -25,7 +25,7 @@
 			},
 			getQuote: function() {
 				var self = this;
-				let url='http://0.0.0.0:3000/get_random_quote'
+				let url='http://localhost:3000/get_random_quote'
 				// GET request
 				this.$http.get(url, function (data) {
 					// set data on vm
