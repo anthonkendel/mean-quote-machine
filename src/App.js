@@ -6,6 +6,8 @@ let quoteRouter = require("./routes/Quote.module");
 app.use(function (req, res, next) {
     res.charset = "utf-8";
     res.header("Content-Type", "application/json");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
