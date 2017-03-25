@@ -1,8 +1,8 @@
 # Js specific
 node_modules/
 dist/
+.idea/
 
 # Editor specifics
 # Vim swapfile(s)
 *.sw*
-
