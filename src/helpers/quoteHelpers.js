@@ -1,5 +1,5 @@
 module.exports = {
-    createQuote: function (string) {
+    formatQuote: function (string) {
         return ({
             quote: string
         });
