@@ -1,31 +1,50 @@
 let mongo = require("mongodb").MongoClient;
 let assert = require("assert");
 
-// Connection URL
-let url = 'mongodb://localhost:27017/mean-mongo';
+/*
+ * Connection URL
+ */
+let mongoUrl = 'mongodb://localhost:27017/mean-mongo';
 
-// Use connect method to connect to the Server
+/*
+ * Check if generated quote already exists in mongodb
+ */
+let quoteExists = function (quote, quoteCollection) {
+    quoteCollection.find({text: quote.text}).toArray(function (err, quotes) {
+        if (!assert.equal(null, err)) {
+            return quotes.length > 0;
+        } else {
+            return false;
+        }
+    });
+};
 
-mongo.connect(url, function (err, db) {
-    assert.equal(null, err);
-    console.log("Connected to mongodb");
-    db.close();
-});
-
+/*
+ * Exported modules
+ */
 module.exports = {
+    /*
+     * Insert quote in mongodb
+     */
     insertQuote: function (quote) {
-        mongo.connect(url, function (err, db) {
+        mongo.connect(mongoUrl, function (err, db) {
             if (!assert.equal(null, err)) {
-                console.log("Connected correctly to server");
-                let quotes = db.collection("quotes");
+                console.log("Connected to mongodb");
+                let quoteCollection = db.collection("quotes");
 
-                quotes.insertOne(quote, function (err, result) {
-                    assert.equal(err, null);
-
-                    console.log(result.ops);
-                });
+                if (!quoteExists(quote, quoteCollection)) {
+                    quoteCollection.insertOne(quote, function (err, result) {
+                        if (!assert.equal(err, null)) {
+                            console.log(result.ops);
+                        } else {
+                            console.error("Error: " + err);
+                        }
+                    });
+                }
+            } else {
+                console.error("Error: " + err);
             }
             db.close();
         });
     }
-}
+};
