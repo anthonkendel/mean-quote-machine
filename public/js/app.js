@@ -1,6 +1,6 @@
 (function(){
 	let project = "Mean quote machine!"
-	let url="http://" + "0.0.0.0" + ":3000/get_random_quote"
+	let url="http://" + window.location.hostname + ":3000/get_random_quote"
 
 	var app = new Vue({
 		el: '#app',
