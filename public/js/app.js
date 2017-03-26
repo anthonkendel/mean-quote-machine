@@ -13,8 +13,8 @@
 		el: '#request',
 		data: function() {
 			return {
-				quote: "Placeholder quote",
-				author: "Placeholder author"
+				quote: "",
+				author: ""
 			}
 		},
 		methods: {

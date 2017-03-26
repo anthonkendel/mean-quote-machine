@@ -12,7 +12,6 @@
 	<!-- Our stylesheet -->
 	<link rel="stylesheet" href="css/main.css">
 
-
 	<script type="text/javascript" src="js/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.13/vue-resource.min.js"></script>
 </head>
@@ -29,11 +28,11 @@
 
 	<main role="main" class="container" id="request">
 		<div class="row">
-			<div class="column column-50"><button v-on:click="getQuote">Give me a random quote</button></div>
-			<div class="column column-50"><button>Press me</button></div>
+			<div class="column"><button v-on:click="getQuote">Give me a random quote</button></div>
+			<div class="column"><button>Give me an existing quote</button></div>
 		</div>
 		<div class="row ">
-			<blockquote class="column column-50 quote">{{quote}}</blockquote>
+			<blockquote class="column quote">{{quote}}</blockquote>
 		</div>
 		<div class="row">
 			<div class="column column-50 author">{{author}}</div>
