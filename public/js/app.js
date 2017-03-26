@@ -1,6 +1,6 @@
 (function(){
 	let project = "Mean quote machine!"
-	let url="https://" + window.location.host + ":3000/get_random_quote"
+	let url="http://" + "0.0.0.0" + ":3000/get_random_quote"
 
 	var app = new Vue({
 		el: '#app',
@@ -29,12 +29,11 @@
 				const context = this
 
 				// GET request
-				this.$https.get(url, function (data) {
+				this.$http.get(url, function (data) {
 					cb(data.quote, context)
 				}).error(function (data, status, request) {
 					console.log("Error fetching quote")
 				})
-
 			}
 		}
 	});
