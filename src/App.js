@@ -3,6 +3,8 @@ let app = express();
 
 let quoteRouter = require("./routes/Quote.module");
 
+app.use("/",express.static("public"));
+
 app.use(function (req, res, next) {
     res.charset = "utf-8";
     res.header("Content-Type", "application/json");
@@ -16,9 +18,3 @@ app.use(quoteRouter);
 app.listen(3000, "0.0.0.0", function () {
     console.log("API up and running.");
 });
-
-
-
-
-
-
