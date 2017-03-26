@@ -5,11 +5,13 @@ services:
 node_js:
   - "node"
 
+before_install:
+  - ./install_containers.sh start all
+
 install:
-  - sudo apt-get install jq curl
+  - sudo apt-get install -y jq curl
 
 script:
-  - ./install_containers.sh start all
   - ./scripts/integration_test.sh
 
 notifications:
