@@ -13,7 +13,6 @@ install:
   - sudo apt-get install -y jq curl
 
 script:
-  - curl -s localhost:3000/get_random_quote | jq -r '.quote.author'
   - docker ps
   - sleep 3
   - ./scripts/integration_test.sh
