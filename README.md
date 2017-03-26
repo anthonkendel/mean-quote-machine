@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/anthonkendel/mean-quote-machine.svg?branch=master)](https://travis-ci.org/anthonkendel/mean-quote-machine)
+
 # Mean Quote Machine!
 
 A simple application that generates random quotes from [Wikipedia](https://www.wikipedia.org/) with the help of [wikiquotejs](https://www.npmjs.com/package/wikiquotesjs). The application is built upon the MEAN stack with the exception that Angular.js has been switched out with Vue.js.
