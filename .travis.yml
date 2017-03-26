@@ -9,6 +9,7 @@ before_install:
   - ./install_containers.sh start all
 
 install:
+  - sudo apt-get update -qq
   - sudo apt-get install -y jq curl
 
 script:
