@@ -13,9 +13,10 @@ install:
   - sudo apt-get install -y jq curl
 
 script:
-  - which curl; which jq
   - docker ps
   - sleep 3
+  - docker logs mean-express
+  - docker logs mean-mongo
   - ./scripts/integration_test.sh
 
 notifications:
