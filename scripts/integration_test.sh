@@ -3,6 +3,8 @@
 IP="localhost"
 PORT=3000
 
+which curl 2>&1 1 > /dev/null || echo "Curl not installed"; exit 1;
+
 q1=$(curl -s $IP:$PORT/get_existing_quote)
 [ "$q1" = "No quotes available" ] && echo "Failed: No qoutes available"; exit 1;
 

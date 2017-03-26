@@ -6,7 +6,7 @@ node_js:
   - "node"
 
 install:
-  - sudo apt-get install jq
+  - sudo apt-get install jq curl
 
 script:
   - ./install_containers.sh start all
