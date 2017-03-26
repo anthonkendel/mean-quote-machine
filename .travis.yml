@@ -1,7 +1,7 @@
 language: node_js
 sudo: required
 services:
- - docker
+  - docker
 node_js:
   - "node"
 
@@ -11,3 +11,6 @@ install:
 script:
   - ./install_containers.sh start all
   - ./scripts/integration_test.sh
+
+notifications:
+  email: false
