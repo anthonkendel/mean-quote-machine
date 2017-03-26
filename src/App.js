@@ -3,6 +3,10 @@ let app = express();
 
 let quoteRouter = require("./routes/Quote.module");
 
+app.set("port", (process.env.PORT || 5000));
+
+app.use("/",express.static("public"));
+
 app.use(function (req, res, next) {
     res.charset = "utf-8";
     res.header("Content-Type", "application/json");
@@ -13,12 +17,6 @@ app.use(function (req, res, next) {
 
 app.use(quoteRouter);
 
-app.listen(3000, "0.0.0.0", function () {
-    console.log("API up and running.");
+app.listen(app.get("port"), function () {
+    console.log("Node app is running on port", app.get("port"));
 });
-
-
-
-
-
-
