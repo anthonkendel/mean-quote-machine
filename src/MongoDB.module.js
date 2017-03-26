@@ -65,7 +65,7 @@ module.exports = {
                 let quoteCollection = db.collection("quotes");
 
                 quoteCollection.find({}).toArray(function (err, quotes) {
-                    if (!assert.equal(null, err)) {
+                    if (!assert.equal(null, err) && quotes.length > 0)  {
                         let index = Math.floor(quotes.length * Math.random());
                         resolve(quotes[index]);
                     } else {
