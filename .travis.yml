@@ -15,11 +15,6 @@ install:
 script:
   - docker ps
   - sleep 3
-  - curl localhost:3000/get_existing_quote
-  - curl localhost:3000/get_random_quote
-  - curl localhost:3000/get_existing_quote
-  - docker logs mean-express
-  - docker logs mean-mongo
   - ./scripts/integration_test.sh
 
 notifications:
