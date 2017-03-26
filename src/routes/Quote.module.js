@@ -8,7 +8,7 @@ let mongoDB = require("../MongoDB.module");
 
 router.get("/get_random_quote/", function (req, res, next) {
     wiki.getRandomQuote().then(quote => {
-        mongoDB.insertQuote(quote);
+        // mongoDB.insertQuote(quote);
         quote.text = quote.text + " " + quote.from;
         res.status(200);
         res.send(quoteHelpers.formatQuote(quote));
@@ -22,7 +22,7 @@ router.get("/get_quote_of_the_day/", function (req, res, next) {
     wiki.getQOTD().then(quote => {
         quote.text = quote.text.text;
         quote["from"] = "";
-        mongoDB.insertQuote(quote);
+        // mongoDB.insertQuote(quote);
         res.status(200);
         res.send(quoteHelpers.formatQuote(quote));
     }).catch(err => {
@@ -32,19 +32,15 @@ router.get("/get_quote_of_the_day/", function (req, res, next) {
 });
 
 router.get("/get_existing_quote/", function (req, res, next) {
-    mongoDB.findRandomQuote().then(function(value) {
-        res.status(200);
-        res.send(value);
-    }, function(reason) {
-        res.status(200);
-        res.send(reason);
-    });
-
+    // mongoDB.findRandomQuote().then(function(value) {
+    //    res.status(200);
+    //    res.send(value);
+    // }, function(reason) {
+    //    res.status(200);
+    //    res.send(reason);
+    // });
 });
 
 
 
 module.exports = router;
-
-
-
