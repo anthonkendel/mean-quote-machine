@@ -12,8 +12,8 @@ then
     exit 1;
 fi
 
-q2=$(curl -s $IP:$PORT/get_random_quote | jq -r '.quote.author')
-test -n "$q2" || echo "Failed: Could not get random quote"; exit 1;
+#q2=$(curl -s $IP:$PORT/get_random_quote | jq -r '.quote.author')
+#test -n "$q2" || echo "Failed: Could not get random quote"; exit 1;
 
 # To ensure we can fetch that saved quote
 #sleep 1
