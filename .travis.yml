@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+
+install:
+  - sudo apt-get install jq
+
+script:
+  - ./install_containers.sh start all
+  - ./scripts/integration_test.sh
