@@ -13,6 +13,7 @@ install:
   - sudo apt-get install -y jq curl
 
 script:
+  - docker ps
   - sleep 3
   - ./scripts/integration_test.sh
 
