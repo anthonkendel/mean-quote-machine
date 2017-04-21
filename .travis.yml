@@ -4,18 +4,14 @@ services:
   - docker
 node_js:
   - "node"
-
 before_install:
   - ./install_containers.sh start all
-
 install:
   - sudo apt-get update -qq
   - sudo apt-get install -y jq curl
-
 script:
   - docker ps
   - sleep 3
   - ./scripts/integration_test.sh
-
 notifications:
   email: false
