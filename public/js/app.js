@@ -1,6 +1,6 @@
 (function(){
 	let project = "Mean quote machine!"
-	let url="http://" + window.location.hostname
+	let url= window.location.protocol + "//" + window.location.hostname
 
 	var app = new Vue({
 		el: '#app',
