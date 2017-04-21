@@ -32,13 +32,13 @@ router.get("/get_quote_of_the_day/", function (req, res, next) {
 });
 
 router.get("/get_existing_quote/", function (req, res, next) {
-    // mongoDB.findRandomQuote().then(function(value) {
-    //    res.status(200);
-    //    res.send(value);
-    // }, function(reason) {
-    //    res.status(200);
-    //    res.send(reason);
-    // });
+    mongoDB.findRandomQuote().then(function(value) {
+       res.status(200);
+       res.send(value);
+    }, function(reason) {
+       res.status(200);
+       res.send(reason);
+    });
 });
 
 
