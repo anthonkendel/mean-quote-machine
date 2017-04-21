@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 IP="0.0.0.0"
 PORT=3000
