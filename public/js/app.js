@@ -1,6 +1,6 @@
 (function(){
 	let project = "Mean quote machine!"
-	let url="http://" + window.location.hostname + "/get_random_quote"
+	let url="http://" + window.location.hostname
 
 	var app = new Vue({
 		el: '#app',
@@ -23,13 +23,16 @@
 				context.author = data.author
 			},
 			getQuote: function() {
-				this.retrieveQuote(this.callback)
+				this.retrieveQuote(this.callback, "/get_random_quote")
 			},
-			retrieveQuote: function(cb) {
+			getExistingQuote: function() {
+				this.retrieveQuote(this.callback, "/get_existing_quote")
+			},
+			retrieveQuote: function(cb, endpoint) {
 				const context = this
 
 				// GET request
-				this.$http.get(url, function (data) {
+				this.$http.get(url+endpoint, function (data) {
 					cb(data.quote, context)
 				}).error(function (data, status, request) {
 					console.log("Error fetching quote")
