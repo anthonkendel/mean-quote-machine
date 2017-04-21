@@ -37,46 +37,61 @@ module.exports = {
      */
     insertQuote: function (quote) {
         mongo.connect(mongoUrl, function (err, db) {
-            if (!assert.equal(null, err)) {
-                console.log("Connected to mongodb");
-                let quoteCollection = db.collection("quotes");
+            try {
+                if (!assert.equal(null, err)) {
+                    console.log("Connected to mongodb");
+                    let quoteCollection = db.collection("quotes");
 
-                if (!quoteExists(quote, quoteCollection)) {
-                    quoteCollection.insertOne(quote, function (err, result) {
-                        if (!assert.equal(err, null)) {
-                            console.log(result.ops);
-                        } else {
-                            console.error("Error: " + err);
-                        }
-                    });
+                    if (!quoteExists(quote, quoteCollection)) {
+                        quoteCollection.insertOne(quote, function (err, result) {
+                            if (!assert.equal(err, null)) {
+                                console.log(result.ops);
+                            } else {
+                                console.error("Error: " + err);
+                            }
+                        });
+                    }
+                } else {
+                    console.error("Error: " + err);
                 }
-            } else {
+            } catch (err) {
                 console.error("Error: " + err);
+            } finally {
+                if (db) {
+                    db.close()
+                }
             }
-            db.close();
         });
     },
 
     findRandomQuote: function () {
         return new Promise(function (resolve, reject) {
             mongo.connect(mongoUrl, function (err, db) {
-                if (!assert.equal(null, err)) {
-                    console.log("Connected to mongodb");
-                    let quoteCollection = db.collection("quotes");
+                try {
+                    if (!assert.equal(null, err)) {
+                        console.log("Connected to mongodb");
+                        let quoteCollection = db.collection("quotes");
 
-                    quoteCollection.find({}).toArray(function (err, quotes) {
-                        if (!assert.equal(null, err) && quotes.length > 0) {
-                            let index = Math.floor(quotes.length * Math.random());
-                            resolve(quotes[index]);
-                        } else {
-                            reject("No quotes available");
-                        }
-                    });
-                } else {
+                        quoteCollection.find({}).toArray(function (err, quotes) {
+                            if (!assert.equal(null, err) && quotes.length > 0) {
+                                let index = Math.floor(quotes.length * Math.random());
+                                resolve(quotes[index]);
+                            } else {
+                                reject("No quotes available");
+                            }
+                        });
+                    } else {
+                        console.error("Error: " + err); // Log for server use
+                        reject("Could not connect to the database"); // Reply for client
+                    }
+                } catch (err) {
                     console.error("Error: " + err); // Log for server use
-                    reject("Could not connect to the database"); // Reply for client
+                    reject(errorQuote); // Reply for client
+                } finally {
+                    if (db) {
+                        db.close()
+                    }
                 }
-                db.close();
             });
         });
     }
