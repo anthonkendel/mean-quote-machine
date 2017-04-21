@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "jslint": "0.10.3"
-  }
+  },
+  "engines": {
+  "node": "6.9.5"
+}
 }

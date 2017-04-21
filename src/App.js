@@ -17,6 +17,6 @@ app.use(function (req, res, next) {
 
 app.use(quoteRouter);
 
-let server = app.listen(3000, function () {
+let server = app.listen(app.get("port"), function () {
     console.log("Node app is running on port", app.get("port"));
 });
