@@ -5,7 +5,7 @@ let quoteRouter = require("./routes/Quote.module");
 
 app.set("port", (process.env.PORT || 3000));
 
-app.use("/",express.static("public"));
+app.use("/", express.static("public"));
 
 app.use(function (req, res, next) {
     res.charset = "utf-8";
@@ -17,6 +17,6 @@ app.use(function (req, res, next) {
 
 app.use(quoteRouter);
 
-let server = app.listen(app.get("port"), function () {
+let server = app.listen(3000, function () {
     console.log("Node app is running on port", app.get("port"));
 });
